@@ -8,7 +8,7 @@ const port = process.env.PORT || 4000
 
 
 const GOOGLE_PLACES_URL = (key, location, radius) =>  "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+location.lat+","+location.long+"&radius="+radius+"&type=restaurant&key="+key;
-const GOOGLE_PLACE_DETAIL = (key, placeId) => "https://maps.googleapis.com/maps/api/place/details/json?place_id="+placeId+"&fields=name,rating,formatted_phone_number,formatted_address,place_id,url,photo&key="+key;
+const GOOGLE_PLACE_DETAIL = (key, placeId) => "https://maps.googleapis.com/maps/api/place/details/json?place_id="+placeId+"&fields=name,rating,formatted_phone_number,formatted_address,place_id,url,photo,website,reviews&key="+key;
 
 
 app.use(cors())
