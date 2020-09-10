@@ -4,7 +4,13 @@ const app = express()
 const cors = require('cors')
 
 const port = 4000
-app.use(cors())
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", '*');
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
+  });
 
 require('dotenv').config()
 const GOOGLE_PLACES_URL = (key, location, radius) =>  "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+location.lat+","+location.long+"&radius="+radius+"&type=restaurant&key="+key;
